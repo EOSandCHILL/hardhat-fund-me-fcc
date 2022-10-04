@@ -8,6 +8,7 @@ import "./PriceConverter.sol";
 // 3. Interfaces, Libraries, Contracts
 error FundMe__NotOwner();
 
+// It is recommended that Solidity contracts are fully annotated using NatSpec for all public interfaces (everything in the ABI). Solidity contracts can use a special form of comments to provide rich documentation for functions, return variables and more. This special form is named the Ethereum Natural Language Specification Format (NatSpec). Example below:
 /**@title A sample Funding Contract
  * @author Patrick Collins
  * @notice This contract is for creating a sample funding contract
@@ -120,3 +121,27 @@ contract FundMe {
         return s_priceFeed;
     }
 }
+
+/*
+style guide notes:
+
+https://docs.soliditylang.org/en/latest/style-guide.html
+
+Layout contract elements in the following order:
+
+1 - Pragma statements
+2 - Import statements
+3 - Interfaces
+4 - Libraries
+5 - Contracts
+
+Inside each contract, library or interface, use the following order:
+
+1 - Type declarations
+2 - State variables
+3 - Events
+4 - Modifiers
+5 - Functions
+
+
+*/

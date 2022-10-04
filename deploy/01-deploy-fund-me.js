@@ -2,10 +2,17 @@ const { network } = require("hardhat")
 const { networkConfig, developmentChains } = require("../helper-hardhat-config")
 const { verify } = require("../utils/verify")
 
+// Module exports are the instruction that tells Node. js which bits of code (functions, objects, strings, etc.) to “export” from a given file so other files are allowed to access the exported code.
+// module.exports = async (hre) => {
+// const { getNamedAccounts, deployments } = hre
+// factored code below:
 module.exports = async ({ getNamedAccounts, deployments }) => {
+    // <= syntactic sugar in javascript
     const { deploy, log } = deployments
     const { deployer } = await getNamedAccounts()
     const chainId = network.config.chainId
+
+    // Mock Contract Idea = if the contract doesnt exist, we deploy a minimal version of it for our local testing
 
     let ethUsdPriceFeedAddress
     if (chainId == 31337) {
